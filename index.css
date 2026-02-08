@@ -21,13 +21,13 @@ body {
 
 /* Typography Tokens */
 .font-editorial {
-  font-family: 'Inter', serif; /* Would ideally be a premium serif if linked */
-  letter-spacing: -0.03em;
+  font-family: 'Inter', serif;
+  letter-spacing: -0.05em;
   font-weight: 600;
 }
 
 .label-caps {
-  @apply text-[10px] uppercase font-mono tracking-[0.15em] text-gray-400;
+  @apply text-[10px] uppercase font-mono tracking-[0.3em] text-gray-400 font-bold;
 }
 
 /* Layout */
@@ -49,28 +49,28 @@ body {
 
 /* Components */
 .premium-card {
-  @apply bg-white border border-[var(--studio-border)] rounded-2xl p-6 transition-all duration-300;
+  @apply bg-white border border-[var(--studio-border)] rounded-[2rem] p-8 transition-all duration-500;
 }
 
 .card-hover:hover {
-  @apply border-black shadow-xl -translate-y-1;
+  @apply border-black shadow-[0_40px_80px_rgba(0,0,0,0.1)] -translate-y-2;
 }
 
 .status-ring {
-  @apply w-2 h-2 rounded-full;
+  @apply w-2.5 h-2.5 rounded-full;
 }
 
 .btn-studio {
-  @apply px-6 py-2 rounded-full font-medium transition-all duration-200 border border-black active:scale-95 text-sm;
+  @apply px-8 py-3 rounded-full font-bold transition-all duration-500 active:scale-95 text-xs;
 }
 
 .btn-studio-primary {
-  @apply bg-black text-white hover:bg-gray-800;
+  @apply bg-black text-white hover:bg-gray-800 shadow-xl hover:shadow-[0_20px_40px_rgba(0,0,0,0.2)];
 }
 
 /* Progress Ladder */
 .ladder-step {
-  @apply h-1 flex-1 bg-gray-100 rounded-full transition-all duration-500;
+  @apply h-1.5 flex-1 bg-gray-100 rounded-full transition-all duration-700;
 }
 .ladder-step-active {
   @apply bg-black;
@@ -78,27 +78,47 @@ body {
 
 /* Scrollbar */
 ::-webkit-scrollbar {
-  width: 4px;
+  width: 3px;
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(0,0,0,0.1);
+  background: rgba(0,0,0,0.15);
   border-radius: 10px;
 }
 
 /* Animations */
 @keyframes slideUp {
-  from { opacity: 0; transform: translateY(20px); }
+  from { opacity: 0; transform: translateY(60px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
 .animate-studio {
-  animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: slideUp 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes loading {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* Webtoon strip scroll smoothing */
+.webtoon-strip {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.webtoon-panel img {
+  @apply w-full h-auto block transition-all duration-1000;
 }
 
 /* Director Board Chips */
 .chip {
-  @apply px-3 py-1 text-xs rounded-full border border-[var(--studio-border)] hover:border-black cursor-pointer transition-colors;
+  @apply px-4 py-2 text-[9px] uppercase tracking-[0.2em] font-mono rounded-full border border-[var(--studio-border)] hover:border-black cursor-pointer transition-all duration-500 font-bold;
 }
 .chip-active {
-  @apply bg-black text-white border-black;
+  @apply bg-black text-white border-black shadow-xl scale-105;
+}
+
+/* Specific 3D Perspective utils */
+.perspective-studio {
+  perspective: 1500px;
 }
