@@ -1,0 +1,104 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --studio-bg: #ffffff;
+  --studio-card: #ffffff;
+  --studio-accent: #000000;
+  --studio-gold: #d4af37;
+  --studio-muted: #f4f4f5;
+  --studio-border: rgba(0, 0, 0, 0.08);
+}
+
+body {
+  background-color: var(--studio-bg);
+  color: #111;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Typography Tokens */
+.font-editorial {
+  font-family: 'Inter', serif; /* Would ideally be a premium serif if linked */
+  letter-spacing: -0.03em;
+  font-weight: 600;
+}
+
+.label-caps {
+  @apply text-[10px] uppercase font-mono tracking-[0.15em] text-gray-400;
+}
+
+/* Layout */
+.studio-nav {
+  width: 240px;
+  @apply h-screen fixed left-0 top-0 border-r border-[var(--studio-border)] bg-white z-50 flex flex-col;
+}
+
+.studio-center {
+  margin-left: 240px;
+  margin-right: 320px;
+  @apply min-h-screen p-12;
+}
+
+.studio-director {
+  width: 320px;
+  @apply h-screen fixed right-0 top-0 border-l border-[var(--studio-border)] bg-white z-50 p-8 flex flex-col;
+}
+
+/* Components */
+.premium-card {
+  @apply bg-white border border-[var(--studio-border)] rounded-2xl p-6 transition-all duration-300;
+}
+
+.card-hover:hover {
+  @apply border-black shadow-xl -translate-y-1;
+}
+
+.status-ring {
+  @apply w-2 h-2 rounded-full;
+}
+
+.btn-studio {
+  @apply px-6 py-2 rounded-full font-medium transition-all duration-200 border border-black active:scale-95 text-sm;
+}
+
+.btn-studio-primary {
+  @apply bg-black text-white hover:bg-gray-800;
+}
+
+/* Progress Ladder */
+.ladder-step {
+  @apply h-1 flex-1 bg-gray-100 rounded-full transition-all duration-500;
+}
+.ladder-step-active {
+  @apply bg-black;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0,0.1);
+  border-radius: 10px;
+}
+
+/* Animations */
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-studio {
+  animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Director Board Chips */
+.chip {
+  @apply px-3 py-1 text-xs rounded-full border border-[var(--studio-border)] hover:border-black cursor-pointer transition-colors;
+}
+.chip-active {
+  @apply bg-black text-white border-black;
+}

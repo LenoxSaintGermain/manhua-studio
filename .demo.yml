@@ -1,0 +1,13 @@
+status: live
+title: Showrunner Studio
+pitch: A premium AI-driven manhua and graphic novel production suite with professional director controls.
+category: ai
+platform: cloudrun
+featured: true
+live_url: https://studio-774938836261.us-west1.run.app
+cover_prompt: A sleek, minimal Apple-style studio dashboard for professional comic book creators, high resolution, soft lighting.
+tags:
+  - ai
+  - creative-tools
+  - webtoon
+  - storytelling
